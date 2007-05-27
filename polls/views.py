@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from fa.polls.models import Poll
+from foiaqui.polls.models import Poll
 from django.shortcuts import render_to_response, get_object_or_404
 
 def index(request):

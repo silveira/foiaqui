@@ -1,4 +1,4 @@
-# Django settings for fa project.
+# Django settings for foiaqui project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -57,7 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
 )
 
-ROOT_URLCONF = 'fa.urls'
+ROOT_URLCONF = 'foiaqui.urls'
 
 TEMPLATE_DIRS = (
     'templates'
@@ -70,6 +70,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.admin',
-    'fa.polls',
-    'fa.crimes',
+    'foiaqui.polls',
+    'foiaqui.crimes',
 )
