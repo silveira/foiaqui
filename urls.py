@@ -7,4 +7,6 @@ urlpatterns = patterns('',
     (r'^polls/(?P<poll_id>\d+)/vote/$', 'foiaqui.polls.views.vote'),
     (r'^mediafiles/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/silveira/Desktop/foiaqui/media/'}),
     (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^crimes/', 'foiaqui.crimes.views.index'),
+    (r'^$', 'foiaqui.core.views.index')
 )
