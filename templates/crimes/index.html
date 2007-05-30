@@ -1,0 +1,11 @@
+<h1>Crimes</h1>
+
+{% if incidents %}
+    <p>You have incidents.</p>
+    {% for incident in incidents %}
+        {{ incident.desc }}
+    {% endfor %}
+{% else %}
+    <p>No incidents!</p>
+{% endif %}
+
