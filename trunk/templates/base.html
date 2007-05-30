@@ -1,0 +1,81 @@
+f<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>CORE.NAME</title>
+  <meta name="GENERATOR" content="Quanta Plus" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAdXLH3DIYZYlH_J8squDexRTpH3CbXHjuCVmaTc5MkkU4wO1RRhTrYl5Qz3q4bJOU1YVpTCryJcULWA" type="text/javascript"></script>
+<script src="mediafiles/maps.js" type="text/javascript"></script>
+<link rel="stylesheet" href="mediafiles/style.css" type="text/css" />
+</head>
+
+<body onload="load()" onunload="GUnload()">
+	<div class="content">
+			<div class="preheader">
+				<div class="padding">
+{% if incident_counter_text %}
+	{{incident_counter_text}}
+{% else %}
+ERROR: incident_counter_text não definido
+{% endif %}
+				</div>
+			</div>
+		
+			<div class="header">
+				<div class="title">foiaqui.com.br</div>
+				<div class="slogan">Nós melhorando a nossa segurança</div>
+			</div>
+					
+			<div id="nav">
+			  	<ul>
+				<li><a href="http://127.0.0.1:8000/">Principal</a></li>
+				<li><a href="http://127.0.0.1:8000/">Filosofia</a></li>
+				<li><a href="http://127.0.0.1:8000/">Blog</a></li>
+				<li><a href="http://127.0.0.1:8000/">Parceiros</a></li>
+     				<li id="current"><a href="#">Sobre</a></li>
+      				<li><a href="#">Contato</a></li>
+      			</ul>
+			</div>
+		
+			<div class="main_content">
+				<div class="sd_right">
+					<div class="text_padding">
+						<h2>Ultimas Notícias</h2> blable bli blo blu? na ne nin as asd asffsa. Aasdas fas d. ASDF!
+						<br /><br />
+						<h2>Busca</h2>
+						<form method="post" action="#">
+							<p><input type="text" name="search" class="search" /> <input type="submit" value="Vai" class="submit" /> </p>
+						</form>
+						<br/>
+						<h2>Ajuda</h2>
+						<a href="#">Como o sistema funciona</a><br />
+						<a href="#">Como colaborar</a><br />
+						<br />
+						<h2>Parceiros</h2>
+						<a href="http://www.wikipedia.org">wikipedia.org</a><br />
+						<a href="http://www.wikimapia.org">wikimapia.org</a><br />
+						<a href="http://www.eupodiatamatando.com">eupodiatamatando.com</a><br />
+					</div>
+				</div>
+			
+				<div class="sd_left">
+					<div class="text_padding">
+						{% block content %}
+						<div id="map" style="width: 500px; height: 500px"></div>
+						{% endblock %}
+					</div>
+				</div>
+	
+				<div class="footer">
+					<div class="padding">
+						Este site não é filiado ao Google. <a href="admin"><img src="mediafiles/lock.png"></a>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+</body>
+</html>
