@@ -24,7 +24,7 @@ function load() {
 		map.addControl(new GMapTypeControl());
 		map.setCenter(new GLatLng(-3.746391, -38.574307), 13);
 
-		GDownloadUrl("crimes", function(data, responseCode) {
+		GDownloadUrl("/crimes/xml", function(data, responseCode) {
 			var xml = GXml.parse(data);
 			var markers = xml.documentElement.getElementsByTagName("incident");
 			for (var i = 0; i < markers.length; i++) {
