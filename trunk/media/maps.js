@@ -1,6 +1,6 @@
 //<![CDATA[
 
-function mk_marker(point, desctext, date){
+function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, period){
 	var icon = new GIcon();
 	icon.image = "mediafiles/finger.png";
 	icon.shadow = "mediafiles/shadow.png";
@@ -11,7 +11,7 @@ function mk_marker(point, desctext, date){
 
 	var marker = new GMarker(point, icon);
 
-	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml("<img src=\"mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div><img src=\"mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+date+"</div>");});
+	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml("<img src=\"mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div><img src=\"mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>"+mobility+" "+quantity+" "+thief+" "+weapon+" "+period);});
 	return marker;
 }
 
@@ -30,8 +30,13 @@ function load() {
 			for (var i = 0; i < markers.length; i++) {
 				var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")), parseFloat(markers[i].getAttribute("lng")));
 				var desc = markers[i].getAttribute("desc");
-				var date = markers[i].getAttribute("date");
-				var marker = mk_marker(point, desc, date);
+				var when = markers[i].getAttribute("date");
+				var mobility = markers[i].getAttribute("mobility");
+				var quantity = markers[i].getAttribute("quantity");
+				var thief = markers[i].getAttribute("thief");
+				var weapon = markers[i].getAttribute("weapon");
+				var period = markers[i].getAttribute("period");
+				var marker = mk_marker(point, desc, when, mobility, quantity, thief, weapon, period);
 				map.addOverlay(marker);
 			}
 		});
