@@ -11,7 +11,7 @@ function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, per
 
 	var marker = new GMarker(point, icon);
 
-	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml("<img src=\"mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div><img src=\"mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>"+mobility+" "+quantity+" "+thief+" "+weapon+" "+period);});
+	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml("<img src=\"/mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div><img src=\"/mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>"+"<img src=\"/mediafiles"+mobility+".png\"> <img src=\"/mediafiles"+quantity+".png\"> <img src=\"/mediafiles"+thief+".png\"> <img src=\"/mediafiles"+weapon+".png\"> <img src=\"/mediafiles"+period+".png\">");});
 	return marker;
 }
 
