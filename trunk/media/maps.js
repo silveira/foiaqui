@@ -14,7 +14,8 @@ function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, per
 	var desc_html = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div><img src=\"/mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>"
 	var open_icon = "<img src=\"/mediafiles/"
 	var close_icon = ".png\"/>"
-	var icons_html = open_icon+mobility+close_icon + open_icon+quantity+close_icon + open_icon+thief+close_icon + open_icon+weapon+close_icon + open_icon+period+close_icon
+
+	var icons_html = "<center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center>"
 
 	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+icons_html);});
 	return marker;
