@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'mysql'           # 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
 DATABASE_NAME = 'foiaqui'             # Or path to database file if using sqlite3.
 DATABASE_USER = 'root'             # Not used with sqlite3.
-DATABASE_PASSWORD = 'lab2'         # Not used with sqlite3.
+DATABASE_PASSWORD = 'foiaqui'         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
@@ -72,8 +72,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.admin',
     'django.contrib.sites',
+    'django.contrib.flatpages',
     'foiaqui.core',
     'foiaqui.polls',
     'foiaqui.crimes',
-    'django.contrib.flatpages',
+
 )
