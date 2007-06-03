@@ -19,17 +19,8 @@ function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, per
 
 	var icons_html = "<center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center>"
 
-	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+icons_html);alert('old');});
+	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+icons_html);});
 	return marker;
-}
-
-
-function mk_input(overlay, point){
-	// If the click was in a empty region
-	if (overlay == null){
-		var new_input = new GMarker(point);
-		map.addOverlay(new_input);
-	}
 }
 
 // The Main funcion
@@ -67,18 +58,13 @@ function load() {
 				}
 				var input_marker = new GMarker(point, {draggable: true});
 				old_marker = input_marker;
+				GEvent.addListener(old_marker, "click", function() {old_marker.openInfoWindowHtml(
+				"This is <strong>HTML</strong>!"
+				);});
 				map.addOverlay(input_marker);
 			}
  		});
 
-
-// 		GEvent.addListener(map, "click", function(overlay, point) {
-// 			if (overlay) {
-// 				map.removeOverlay(overlay);
-// 			} else {
-// 				map.addOverlay(new GMarker(point));
-// 			}
-// 		});
 
 	}
 }
