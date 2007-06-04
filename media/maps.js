@@ -59,7 +59,7 @@ function load() {
 				var input_marker = new GMarker(point, {draggable: true});
 				old_marker = input_marker;
 				GEvent.addListener(old_marker, "click", function() {old_marker.openInfoWindowHtml(
-				"This is <strong>HTML</strong>!"
+				"<textarea class=\"desc\" rows=\"2\" cols=\"20\">Insira sua descrição aqui</textarea>"
 				);});
 				map.addOverlay(input_marker);
 			}
