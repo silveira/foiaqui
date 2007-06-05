@@ -58,9 +58,8 @@ function load() {
 				}
 				var input_marker = new GMarker(point, {draggable: true});
 				old_marker = input_marker;
-				GEvent.addListener(old_marker, "click", function() {old_marker.openInfoWindowHtml(
-				"<textarea class=\"desc\" rows=\"2\" cols=\"20\">Insira sua descrição aqui</textarea>"
-				);});
+				var html = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi?</strong><br /> <textarea class=\"desc\" >Insira sua descrição aqui</textarea> <br/><strong>Clique nas legendas:</strong><br />";
+				GEvent.addListener(old_marker, "click", function() {old_marker.openInfoWindowHtml(html);});
 				map.addOverlay(input_marker);
 			}
  		});
