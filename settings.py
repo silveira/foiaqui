@@ -76,5 +76,5 @@ INSTALLED_APPS = (
     'foiaqui.core',
     'foiaqui.polls',
     'foiaqui.crimes',
-
+#    'foiaqui.contacts',
 )

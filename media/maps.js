@@ -23,11 +23,13 @@ function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, per
 	return marker;
 }
 
+
 // The Main funcion
 function load() {
+	var map;
 	if (GBrowserIsCompatible()) {
-		var map = new GMap2(document.getElementById("map"));
-		map.addControl(new GSmallMapControl());
+		map = new GMap2(document.getElementById("map"));
+		map.addControl(new GLargeMapControl());
 		map.addControl(new GMapTypeControl());
 		map.setCenter(new GLatLng(-3.746391, -38.574307), 13);
 
@@ -36,7 +38,7 @@ function load() {
 			var markers = xml.documentElement.getElementsByTagName("incident");
 			for (var i = 0; i < markers.length; i++) {
 				var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")), parseFloat(markers[i].getAttribute("lng")));
-				var desc = markers[i].getAttribute("desc");
+				var desc = markers[i].getAttribute("summary");
 				var when = markers[i].getAttribute("date");
 				var mobility = markers[i].getAttribute("mobility");
 				var quantity = markers[i].getAttribute("quantity");
@@ -48,23 +50,38 @@ function load() {
 			}
 		});
 
-
 		// New input marker
 		var old_marker = null;
+		
+		// When clicks in a empty space in the map
 		GEvent.addListener(map, "click", function(overlay, point) {
 			if (overlay==null) {
 				if(old_marker != null){
 					map.removeOverlay(old_marker);
 				}
-				var input_marker = new GMarker(point, {draggable: true});
-				old_marker = input_marker;
-				var html = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi?</strong><br /> <textarea class=\"desc\" >Insira sua descrição aqui</textarea> <br/><strong>Clique nas legendas:</strong><br />";
-				GEvent.addListener(old_marker, "click", function() {old_marker.openInfoWindowHtml(html);});
-				map.addOverlay(input_marker);
+				// yes, you can drag it
+				old_marker = new GMarker(point, {draggable: true});
+				
+				// When you try to drag it, info window closes.
+				GEvent.addListener(old_marker, "dragstart", function() {map.closeInfoWindow();});
+				
+				// Add an callback to the new marker
+				GEvent.addListener(old_marker, "click", function() {
+					open_form = "<form name=\"theform\" action=\"/crimes/insert/\" method=\"post\" id=\"theform\">";
+					input_desc = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi?</strong><br /> <textarea name=\"desc\" class=\"desc\" >Insira sua descrição aqui</textarea> <br/>";
+					footer = "<img src=\"/mediafiles/cancel.png\"> <input type=\"image\" src=\"/mediafiles/add.png\" />";
+					
+					point = old_marker.getPoint();
+					lat = "<input class=\"hidden\" type=\"hidden\" name=\"lat\" value=\""+point.lat()+"\" id=\"lat\" />";
+					lng = "<input class=\"hidden\" type=\"hidden\" name=\"lng\" value=\""+point.lng()+"\" id=\"lng\" />";
+					
+					close_form = "</form>";
+					html = open_form + input_desc + footer + lat + lng +close_form;
+					old_marker.openInfoWindowHtml(html);				
+				});
+				map.addOverlay(old_marker);
 			}
  		});
-
-
 	}
 }
 //]]>
