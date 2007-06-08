@@ -8,5 +8,8 @@ urlpatterns = patterns('',
     (r'^mediafiles/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/silveira/Desktop/foiaqui/media'}),
     (r'^admin/', include('django.contrib.admin.urls')),
     (r'^crimes/xml', 'foiaqui.crimes.views.index'),
-    (r'^$', 'foiaqui.core.views.index')
+	(r'^crimes/insert', 'foiaqui.crimes.views.insert_incident'),
+    (r'^$', 'foiaqui.core.views.index'),
+#    (r'^contact/thankyou/', 'contacts.views.thankyou'),
+#    (r'^contact/', 'contacts.views.contactview'),
 )

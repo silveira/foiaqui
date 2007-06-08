@@ -48,13 +48,21 @@ class Incident (models.Model):
     weapon = models.CharField(maxlength=2, choices=WEAPON)
     period = models.CharField(maxlength=2, choices=PERIOD)
 
+    def summary(self):
+	"""An short description of the description"""
+	cut = 100
+	if len(self.desc) > cut:
+		return self.desc[:cut]+" ..."
+	else:
+		return self.desc[:cut]
+
     def __str__(self):
         """An string representation of the incident object"""
         cut = 10
         if len(self.desc) > cut:
-            return str(self.id)+" "+self.desc[:10]+"..."
+            return str(self.id)+" "+self.desc[:cut]+" ..."
         else:
-            return str(self.id)+" "+self.desc[:10]
+            return str(self.id)+" "+self.desc[:cut]
 
     def was_today(self):
         """True if when is current day"""
