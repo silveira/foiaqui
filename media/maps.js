@@ -11,15 +11,14 @@ function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, per
 	icon.infoWindowAnchor = new GPoint(5, 1);
 
 	var marker = new GMarker(point, icon);
-	marker.kind = "INCIDENT";
 
-	var desc_html = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div><img src=\"/mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>"
-	var open_icon = "<img src=\"/mediafiles/"
-	var close_icon = ".png\"/>"
+	var desc_html = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div>";
+	var when_html = "<img src=\"/mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>";
+	var open_icon = "<img src=\"/mediafiles/";
+	var close_icon = ".png\"/>";
+	var labels_html = "<img src=\"/mediafiles/tag.png\"> <strong>Rótulos:</strong><br /><div class=\"desc\"><center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center></div>";
 
-	var icons_html = "<center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center>"
-
-	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+icons_html);});
+	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+labels_html+when_html);});
 	return marker;
 }
 
@@ -65,7 +64,7 @@ function load() {
 				// When you try to drag it, info window closes.
 				GEvent.addListener(old_marker, "dragstart", function() {map.closeInfoWindow();});
 				
-				// Add an callback to the new marker
+				// Add an callback to an new marker
 				GEvent.addListener(old_marker, "click", function() {
 					open_form = "<form name=\"theform\" action=\"/crimes/insert/\" method=\"post\" id=\"theform\">";
 					input_desc = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi?</strong><br /> <textarea name=\"desc\" class=\"desc\" >Insira sua descrição aqui</textarea> <br/>";

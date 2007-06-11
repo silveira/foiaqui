@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{# We don't want scripts #}
+{% block scripts %}
+{% endblock %}
+
+
 {% block title %}
 	{{ flatpage.title }}
 {% endblock %}

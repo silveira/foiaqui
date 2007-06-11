@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{# We don't want scripts #}
+{% block scripts %}
+{% endblock %}
+
+{% block content %}
+
+<h2>Incidente nº {{incident.id}}</h2>
+
+<p>
+<img src="/mediafiles/talking.png"><strong> Como foi:</strong><br/>
+<div class="longdesc">{{incident.desc}}</div>
+</p>
+
+<p>
+<img src="/mediafiles/clock.png"><strong> Quando foi:</strong><br/>
+<div class="desc">{{incident.when}}<br/>({{incident.when|timesince}} ago)</div>
+</p>
+
+
+<p>
+<img src="/mediafiles/tag.png"><strong> Rótulos:</strong><br/>
+<div class="desc"><center>
+<img src="/mediafiles/{{incident.mobility}}.png" />
+<img src="/mediafiles/{{incident.quantity}}.png" />
+<img src="/mediafiles/{{incident.thief}}.png" />
+<img src="/mediafiles/{{incident.weapon}}.png" />
+<img src="/mediafiles/{{incident.period}}.png" />
+</center></div>
+</p>
+
+<p>
+<a href="/">Voltar</a>
+</p>
+{% endblock content %}
