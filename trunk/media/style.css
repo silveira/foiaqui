@@ -19,7 +19,12 @@ h1 a { color: #46574D; background: inherit; }
 h1 a, h2 a { text-decoration: none; }
 h1 a:hover, h2 a:hover { color: #BFE1ED; background: inherit; }
 h3 { font: 90% Arial, Sans-Serif; margin: 0 0 10px 0; padding: 0; color: #46574D; background: #FFF; }
-p {	margin: 0 0 0px 0; line-height: 1.5em; }
+/*
+ * original
+ * p {	margin: 0 0 0px 0; line-height: 1.5em; }*/
+p {
+	line-height: 1.5em;
+}
 form { margin: 0; }
 input.search { width: 122px; height: 15px; border: 1px dashed #46574D; background: #FFF url(input.jpg) no-repeat; padding: 3px; color: #616161; }
 input.submit { width: 28px; height: 20px; font-weight: bold; border: none; background: #FFF; padding: 3px; color: #616161; }
@@ -28,10 +33,24 @@ img{
 border:0px;
 }
 
+textarea{
+	background: #FFFEEF;
+	border:1px;
+	padding: 1em;
+}
+
 .desc{
 	background: #FFFEEF;
 	border:1px;
 	width:210px;
+	padding: 1em;
+	text-align: justify;
+}
+
+.longdesc{
+	background: #FFFEEF;
+	border:1px;
+	width:400px;	
 	padding: 1em;
 	text-align: justify;
 }
@@ -227,7 +246,7 @@ input.button {
 	clear:both;
 }
 
-		.footer .padding {
-			padding: 40px 0 0 0;
-				
-		}
+.footer .padding {
+	padding: 40px 0 0 0;			
+}
+

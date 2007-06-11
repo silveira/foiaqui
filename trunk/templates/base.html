@@ -3,13 +3,21 @@ loading...<?xml version="1.0" encoding="utf-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>{% block title %}CORE.NAME {% endblock %}</title>
+  <title>{% block title %}foiaqui.com.br{% endblock %}</title>
   <meta name="GENERATOR" content="Quanta Plus" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+{% block scripts %} 
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAdXLH3DIYZYlH_J8squDexRTpH3CbXHjuCVmaTc5MkkU4wO1RRhTrYl5Qz3q4bJOU1YVpTCryJcULWA" type="text/javascript"></script>
+
 <script src="/mediafiles/maps.js" type="text/javascript"></script>
+{% endblock scripts %}
+
+
+{% block css %}
 <link rel="stylesheet" href="/mediafiles/style.css" type="text/css" />
+{% endblock css %}
+
 </head>
 
 <body onload="load()" onunload="GUnload()">
@@ -65,7 +73,7 @@ ERROR: incident_counter_text não definido
 	<img src="/mediafiles/VE.png"/> - Em um veículo <br/>
 	<img src="/mediafiles/AL.png"/> - Vítima sozinha<br/>
 	<img src="/mediafiles/FO.png"/> - Vítima acompanhada <br/>
-   <img src="/mediafiles/ON.png"/> - Bandido sozinho<br/>
+	<img src="/mediafiles/ON.png"/> - Bandido sozinho<br/>
 	<img src="/mediafiles/MA.png"/> - Bandido acompanhado <br/>
 	<img src="/mediafiles/MW.png"/> - Com arma branca<br/>
 	<img src="/mediafiles/GN.png"/> - Com arma de fogo<br/>
