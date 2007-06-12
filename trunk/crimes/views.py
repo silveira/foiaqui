@@ -14,6 +14,7 @@ def xml(request):
 	response['Content-Disposition'] = "attachment; filename=list.xml"
 	return response
 
+
 def insert(request):
 	""" Calls that when you want to insert an incident by POST """
 	
@@ -37,6 +38,7 @@ def insert(request):
 	else:
 		return HttpResponse('One or more parameters are missing ...<br/>desc=%s<br/>lat=%s<br/>lng=%s<br/>'%(desc,lat,lng))
 
+
 def form(request):
 	""" Displays a form of a new incident """
 	
@@ -47,18 +49,26 @@ def form(request):
 		weapon = request.POST.get("weapon", "")
 		period = request.POST.get("period", "")
 		desc = request.POST.get("desc", "")
+
+		lat = request.POST.get("lat", "0")
+		lng = request.POST.get("lng", "0")
 		
 		# If this request come from the main site (the map), the form should know only desc.
 		from_main = request.POST.get("from_main", "False")
+
+		print lat,lng,from_main
 		
 		if from_main == "True":
 			return render_to_response('crimes/form.html', {'desc':desc})
-		elif mobility and quantity and thief and weapon and period and desc:
-			return HttpResponse('no futuro colocar aqui o template de detalhamento de incidente	')
+		elif mobility and quantity and thief and weapon and period and desc and lat and lng:
+			new_incident = Incident(desc=desc, lat=lat, lon=lng, when=now, mobility=mobility, quantity=quantity, thief=thief, weapon = weapon, period=period, lat=lat, lon=lng)
+			new_incident.save()		
+			return HttpResponse('Urru!')
 		else:
-			return render_to_response('crimes/form.html',{'mobility': mobility,'quantity':quantity, 'thief': thief, 'weapon':weapon, 'period':period, 'desc':desc})
+			return render_to_response('crimes/form.html',{'mobility': mobility,'quantity':quantity, 'thief': thief, 'weapon':weapon, 'period':period, 'desc':desc, 'lat':str(lat), 'lng':str(lng), 'from_main':str(from_main)})
 	else:
 		return render_to_response('crimes/form.html')
+
 
 def detail(request, id='1'):
 	""" Displays a detailed view of an incident"""
