@@ -41,14 +41,19 @@ def form(request):
 	""" Displays a form of a new incident """
 	
 	if request.method == 'POST':
-		mobility = request.POST.get('mobility', "")
-		quantity = request.POST.get('quantity', "")
-		thief = request.POST.get('thief', "")
-		weapon = request.POST.get('weapon', "")
-		period = request.POST.get('period', "")
-		desc = request.POST.get('desc', "")
-
-		if mobility and quantity and thief and weapon and period and desc:
+		mobility = request.POST.get("mobility", "")
+		quantity = request.POST.get("quantity", "")
+		thief = request.POST.get("thief", "")
+		weapon = request.POST.get("weapon", "")
+		period = request.POST.get("period", "")
+		desc = request.POST.get("desc", "")
+		
+		# If this request come from the main site (the map), the form should know only desc.
+		from_main = request.POST.get("from_main", "False")
+		
+		if from_main == "True":
+			return render_to_response('crimes/form.html', {'desc':desc})
+		elif mobility and quantity and thief and weapon and period and desc:
 			return HttpResponse('no futuro colocar aqui o template de detalhamento de incidente	')
 		else:
 			return render_to_response('crimes/form.html',{'mobility': mobility,'quantity':quantity, 'thief': thief, 'weapon':weapon, 'period':period, 'desc':desc})

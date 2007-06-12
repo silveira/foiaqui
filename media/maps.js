@@ -13,12 +13,13 @@ function mk_marker(point, desctext, when, mobility, quantity, thief, weapon, per
 	var marker = new GMarker(point, icon);
 
 	var desc_html = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi:</strong><br /> <div class=\"desc\">"+desctext+"</div>";
-	var when_html = "<img src=\"/mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>";
+	//var when_html = "<img src=\"/mediafiles/clock.png\"> <strong>Quando foi:</strong><br /><div class=\"desc\">"+when+"</div>";
 	var open_icon = "<img src=\"/mediafiles/";
 	var close_icon = ".png\"/>";
-	var labels_html = "<img src=\"/mediafiles/tag.png\"> <strong>Rótulos:</strong><br /><div class=\"desc\"><center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center></div>";
+	//var labels_html = "<img src=\"/mediafiles/tag.png\"> <strong>Rótulos:</strong><br /><div class=\"desc\"><center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center></div>";
+	var labels_html = "<center>"+open_icon+mobility+close_icon+"   "+ open_icon+quantity+close_icon +"   "+ open_icon+thief+close_icon +"   "+ open_icon+weapon+close_icon +"   "+ open_icon+period+close_icon+"</center>";
 
-	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+labels_html+when_html);});
+	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(desc_html+labels_html);});
 	return marker;
 }
 
@@ -66,7 +67,8 @@ function load() {
 				
 				// Add an callback to an new marker
 				GEvent.addListener(old_marker, "click", function() {
-					open_form = "<form name=\"theform\" action=\"/crimes/insert/\" method=\"post\" id=\"theform\">";
+					//open_form = "<form name=\"theform\" action=\"/crimes/insert/\" method=\"post\" id=\"theform\">";
+					open_form = "<form name=\"theform\" action=\"/crimes/form/\" method=\"post\" id=\"theform\">";
 					input_desc = "<img src=\"/mediafiles/talking.png\"> <strong>Como foi?</strong><br /> <textarea name=\"desc\" class=\"desc\" >Insira sua descrição aqui</textarea> <br/>";
 					footer = "<img src=\"/mediafiles/cancel.png\"> <input type=\"image\" src=\"/mediafiles/add.png\" />";
 					
@@ -74,8 +76,10 @@ function load() {
 					lat = "<input class=\"hidden\" type=\"hidden\" name=\"lat\" value=\""+point.lat()+"\" id=\"lat\" />";
 					lng = "<input class=\"hidden\" type=\"hidden\" name=\"lng\" value=\""+point.lng()+"\" id=\"lng\" />";
 					
+					from_main = "<input class=\"hidden\" type=\"hidden\" name=\"from_main\" value=\"True\"/>";
+
 					close_form = "</form>";
-					html = open_form + input_desc + footer + lat + lng +close_form;
+					html = open_form + input_desc + footer + lat + lng + from_main + close_form;
 					old_marker.openInfoWindowHtml(html);				
 				});
 				map.addOverlay(old_marker);
