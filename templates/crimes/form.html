@@ -11,6 +11,13 @@ Para inserir um novo incidente você deve preencher corretamente o formulário a
 
 <form action="" method="POST" >
 
+lat= {{ lat }}<br/>
+lng= {{ lng }}<br/>
+from_main = {{ from_main }}<br/>
+
+<input class="hidden" type="hidden" name="lat" value="{{lat}}" id="lat" />
+<input class="hidden" type="hidden" name="lng" value="{{lng}}" id="lng" />
+
 <p>
 {% ifequal desc "" %}
 	<font color="red"><strong>Por favor, preencha a descrição</strong></font><br/>

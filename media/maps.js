@@ -73,8 +73,9 @@ function load() {
 					footer = "<img src=\"/mediafiles/cancel.png\"> <input type=\"image\" src=\"/mediafiles/add.png\" />";
 					
 					point = old_marker.getPoint();
-					lat = "<input class=\"hidden\" type=\"hidden\" name=\"lat\" value=\""+point.lat()+"\" id=\"lat\" />";
-					lng = "<input class=\"hidden\" type=\"hidden\" name=\"lng\" value=\""+point.lng()+"\" id=\"lng\" />";
+
+					lat = "<input class=\"hidden\" type=\"hidden\" name=\"lat\" value=\""+point.lat()+"\" id=\"lat\" />"+point.lat()+"<br/>";
+					lng = "<input class=\"hidden\" type=\"hidden\" name=\"lng\" value=\""+point.lng()+"\" id=\"lng\" />"+point.lng();
 					
 					from_main = "<input class=\"hidden\" type=\"hidden\" name=\"from_main\" value=\"True\"/>";
 
