@@ -58,17 +58,23 @@ ERROR: incident_counter_text não definido
 							<p><input type="text" name="search" class="search" /> <input type="submit" value="Vai" class="submit" /> </p>
 						</form>
 						<br/>
-						<h2>Ajuda</h2>
-						<a href="#">Como o sistema funciona</a><br />
-						<a href="#">Como colaborar</a><br />
-						<br />
-						<h2>Parceiros</h2>
-						<a href="http://www.wikipedia.org">wikipedia.org</a><br />
-						<a href="http://www.wikimapia.org">wikimapia.org</a><br />
-						<a href="http://www.eupodiatamatando.com">eupodiatamatando.com</a><br />
+
+<p>
+<h2>Ajuda</h2>
+	<a href="#">Como o sistema funciona</a><br />
+	<a href="#">Como colaborar</a>
+</p>
+
+<p>
+<h2>Parceiros</h2>
+	<a href="http://www.wikipedia.org">wikipedia.org</a><br />
+	<a href="http://www.wikimapia.org">wikimapia.org</a><br />
+	<a href="http://www.eupodiatamatando.com">eupodiatamatando.com</a>
+</p>
 
 {% block labels %}
-  <h2>Legenda</h2><small>
+<p>
+  <h2><img src="/mediafiles/tag.png" alt="label"/>Rótulos</h2><small>
 	<img src="/mediafiles/WK.png"/> - Caminhando<br/>
 	<img src="/mediafiles/VE.png"/> - Em um veículo <br/>
 	<img src="/mediafiles/AL.png"/> - Vítima sozinha<br/>
@@ -82,6 +88,7 @@ ERROR: incident_counter_text não definido
 	<img src="/mediafiles/EV.png"/> - Tarde<br/>
 	<img src="/mediafiles/NI.png"/> - Noite<br/>
 </small>
+</p>
 {% endblock %}
 				</div>
 				</div>
