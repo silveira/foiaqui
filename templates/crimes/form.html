@@ -11,10 +11,6 @@ Para inserir um novo incidente você deve preencher corretamente o formulário a
 
 <form action="" method="POST" >
 
-lat= {{ lat }}<br/>
-lng= {{ lng }}<br/>
-from_main = {{ from_main }}<br/>
-
 <input class="hidden" type="hidden" name="lat" value="{{lat}}" id="lat" />
 <input class="hidden" type="hidden" name="lng" value="{{lng}}" id="lng" />
 
@@ -31,8 +27,8 @@ from_main = {{ from_main }}<br/>
 	<font color="red"><strong>Por favor, selecione uma das opções</strong></font><br/>
 {% endifequal %}
 <strong>Quando ocorreu o incidente:</strong><br/>
-<input type="radio" name="mobility" value="walking" {% ifequal mobility "walking" %}checked="checked"{%endifequal%}>Eu estava a pé, caminhando.<br/>
-<input type="radio" name="mobility" value="vehicle" {% ifequal mobility "vehicle" %}checked="checked"{%endifequal%}>Eu estava dentro de um veículo.
+<input type="radio" name="mobility" value="WK" {% ifequal mobility "WK" %}checked="checked"{%endifequal%}>Eu estava a pé, caminhando.<br/>
+<input type="radio" name="mobility" value="VE" {% ifequal mobility "VE" %}checked="checked"{%endifequal%}>Eu estava dentro de um veículo.
 </p>
 
 <p>
@@ -40,8 +36,8 @@ from_main = {{ from_main }}<br/>
 	<font color="red"><strong>Por favor, selecione uma das opções</strong></font><br/>
 {% endifequal %}
 <strong>Quanto as pessoas que estavam com você:</strong><br/>
-<input type="radio" name="quantity" value="alone" {% ifequal quantity "alone" %}checked="checked"{%endifequal%}>Eu estava sozinho.<br/>
-<input type="radio" name="quantity" value="folloied" {% ifequal quantity "folloied" %}checked="checked"{%endifequal%}>Havia outras pessoas comigo.
+<input type="radio" name="quantity" value="AL" {% ifequal quantity "AL" %}checked="checked"{%endifequal%}>Eu estava sozinho.<br/>
+<input type="radio" name="quantity" value="FO" {% ifequal quantity "FO" %}checked="checked"{%endifequal%}>Havia outras pessoas comigo.
 </p>
 
 <p>
@@ -49,8 +45,8 @@ from_main = {{ from_main }}<br/>
 	<font color="red"><strong>Por favor, selecione uma das opções</strong></font><br/>
 {% endifequal %}
 <strong>Quanto a seus agressores:</strong><br/>
-<input type="radio" name="thief" value="one" {% ifequal thief "one" %}checked="checked"{%endifequal%}>Era somente um bandido.<br/>
-<input type="radio" name="thief" value="many" {% ifequal thief "many" %}checked="checked"{%endifequal%}>Eram vários bandidos.<br/>
+<input type="radio" name="thief" value="ON" {% ifequal thief "ON" %}checked="checked"{%endifequal%}>Era somente um bandido.<br/>
+<input type="radio" name="thief" value="MA" {% ifequal thief "MA" %}checked="checked"{%endifequal%}>Eram vários bandidos.<br/>
 </p>
 
 <p>
@@ -58,9 +54,9 @@ from_main = {{ from_main }}<br/>
 	<font color="red"><strong>Por favor, selecione uma das opções</strong></font><br/>
 {% endifequal %}
 <strong>Quanto a arma do crime:</strong><br/>
-<input type="radio" name="weapon" value="none" {% ifequal weapon "none" %}checked="checked"{%endifequal%}>Eu não tenho certeza se havia uma arma ou eu não consegui ver.<br/>
-<input type="radio" name="weapon" value="melee" {% ifequal weapon "melee" %}checked="checked"{%endifequal%}>Uma arma branca (faca, canivete, vidro etc) ou semelhante.<br/>
-<input type="radio" name="weapon" value="guns" {% ifequal weapon "guns" %}checked="checked"{%endifequal%}>Uma arma de fogo (revolver, pistola etc).
+<input type="radio" name="weapon" value="NN" {% ifequal weapon "NN" %}checked="checked"{%endifequal%}>Eu não tenho certeza se havia uma arma ou eu não consegui ver.<br/>
+<input type="radio" name="weapon" value="MW" {% ifequal weapon "MW" %}checked="checked"{%endifequal%}>Uma arma branca (faca, canivete, vidro etc) ou semelhante.<br/>
+<input type="radio" name="weapon" value="GN" {% ifequal weapon "GN" %}checked="checked"{%endifequal%}>Uma arma de fogo (revolver, pistola etc).
 </p>
 
 <p>
@@ -68,9 +64,9 @@ from_main = {{ from_main }}<br/>
 	<font color="red"><strong>Por favor, selecione uma das opções</strong></font><br/>
 {% endifequal %}
 <strong>Quanto ao período do dia:</strong><br/>
-<input type="radio" name="period" value="morning" {% ifequal period "morning" %}checked="checked"{%endifequal%}>Foi de manhã.<br/>
-<input type="radio" name="period" value="evening" {% ifequal period "evening" %}checked="checked"{%endifequal%}>Foi a tarde.<br/>
-<input type="radio" name="period" value="night" {% ifequal period "night" %}checked="checked"{%endifequal%}>Foi de noite ou na madrugada.<br/>
+<input type="radio" name="period" value="MO" {% ifequal period "MO" %}checked="checked"{%endifequal%}>Foi de manhã.<br/>
+<input type="radio" name="period" value="EV" {% ifequal period "EV" %}checked="checked"{%endifequal%}>Foi a tarde.<br/>
+<input type="radio" name="period" value="NI" {% ifequal period "NI" %}checked="checked"{%endifequal%}>Foi de noite ou na madrugada.<br/>
 </p>
 
 <input type="submit" name="submit" value="Inserir incidente!">
