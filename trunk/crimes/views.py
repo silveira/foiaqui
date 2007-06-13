@@ -1,10 +1,13 @@
+# Django
 from django.shortcuts import render_to_response
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
-from foiaqui.crimes.models import Incident
-
+# Python
 from datetime import datetime
+
+# foiaqui
+from foiaqui.crimes.models import Incident
 
 def xml(request):
 	""" Sends a XML file with some incidents """
@@ -52,22 +55,29 @@ def form(request):
 
 		lat = request.POST.get("lat", "0")
 		lng = request.POST.get("lng", "0")
-		
+		print 'eis: ',lat, lng
+
 		# If this request come from the main site (the map), the form should know only desc.
 		from_main = request.POST.get("from_main", "False")
-
-		print lat,lng,from_main
-		
 		if from_main == "True":
-			return render_to_response('crimes/form.html', {'desc':desc})
-		elif mobility and quantity and thief and weapon and period and desc and lat and lng:
-			new_incident = Incident(desc=desc, lat=lat, lon=lng, when=now, mobility=mobility, quantity=quantity, thief=thief, weapon = weapon, period=period, lat=lat, lon=lng)
-			new_incident.save()		
-			return HttpResponse('Urru!')
-		else:
-			return render_to_response('crimes/form.html',{'mobility': mobility,'quantity':quantity, 'thief': thief, 'weapon':weapon, 'period':period, 'desc':desc, 'lat':str(lat), 'lng':str(lng), 'from_main':str(from_main)})
+			return render_to_response('crimes/form.html', {'desc':desc, 'lat':lat,'lng':lng})
+
+		# If we have all stuff we need, lets create a incident and save it.
+		if mobility and quantity and thief and weapon and period and desc:
+			# we get the local time
+			now = datetime.now()
+			# creates a new incident and save it
+			new_incident = Incident(desc=desc, when=now, mobility=mobility, quantity=quantity, thief=thief, weapon = weapon, period=period, lat=lat, lon=lng)
+			new_incident.save()
+			return 
+			#return HttpResponse('urru')
+		
+		# If everything else fails, we call form.html but passing what we have.
+		return render_to_response('crimes/form.html',{'mobility': mobility,'quantity':quantity, 'thief': thief, 'weapon':weapon, 'period':period, 'desc':desc, 'lat':lat, 'lng':lng, 'from_main':from_main})
 	else:
-		return render_to_response('crimes/form.html')
+		return HttpResponseRedirect('/')
+#		return HttpResponse('Acesse o site principal para criar um novo incidente')
+#		return render_to_response('base.html')
 
 
 def detail(request, id='1'):
