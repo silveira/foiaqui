@@ -1,0 +1,34 @@
+#labels Phase-Deploy
+#How to install foiaqui in your local machine
+
+= What you need =
+
+We are assuming that you are in a linux machine with an python interpreter installed and a database (mysql in our example). You don't need apache instaled.
+
+= Getting lastest django version =
+
+We are using an developmente version of Django. See [http://www.djangoproject.com/documentation/install/ Django Instalation] to learn how install and SVN version of Django.
+
+= Get the last version of foiaqui =
+
+In terminal do:
+{{{
+svn checkout http://foiaqui.googlecode.com/svn/trunk/ foiaqui
+}}}
+
+This will download the last version of foiaqui in the directory named _foiaqui_.
+
+= Set up foiaqui =
+
+There are two things to setup in foiaqui, the database and media files.
+First, edit the file 
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+
