@@ -9,6 +9,7 @@ from datetime import datetime
 # foiaqui
 from foiaqui.crimes.models import Incident
 
+# XML view
 def xml(request):
 	""" Sends a XML file with some incidents """
 	incident_list = Incident.objects.all()
