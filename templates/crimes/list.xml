@@ -1,6 +1,6 @@
 <crimes>
 {% if not incident_list %}ERROR{% endif %}
 {% for incident in incident_list %}
-<incident lat="{{incident.lat}}" lng="{{incident.lon}}" desc="{{incident.desc|linebreaks|escape}}" date="{{incident.when}}" mobility="{{incident.mobility}}" quantity="{{incident.quantity}}" thief="{{incident.thief}}" weapon="{{incident.weapon}}" period="{{incident.period}}" summary="{{incident.summary}}" />
+<incident id="{{incident.id}}" lat="{{incident.lat}}" lng="{{incident.lon}}" desc="{{incident.desc|linebreaks|escape}}" date="{{incident.when}}" mobility="{{incident.mobility}}" quantity="{{incident.quantity}}" thief="{{incident.thief}}" weapon="{{incident.weapon}}" period="{{incident.period}}" summary="{{incident.summary}}" />
 {% endfor %}
 </crimes>
