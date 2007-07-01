@@ -70,8 +70,7 @@ def form(request):
 			# creates a new incident and save it
 			new_incident = Incident(desc=desc, when=now, mobility=mobility, quantity=quantity, thief=thief, weapon = weapon, period=period, lat=lat, lon=lng)
 			new_incident.save()
-			return 
-			#return HttpResponse('urru')
+			return HttpResponseRedirect('/')
 		
 		# If everything else fails, we call form.html but passing what we have.
 		return render_to_response('crimes/form.html',{'mobility': mobility,'quantity':quantity, 'thief': thief, 'weapon':weapon, 'period':period, 'desc':desc, 'lat':lat, 'lng':lng, 'from_main':from_main})
