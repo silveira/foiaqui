@@ -33,18 +33,20 @@ ERROR: incident_counter_text não definido
 			</div>
 		
 			<div class="header">
-				<div class="title">foiaqui.com.br</div>
+				<div class="title">foiaqui</div>
 				<div class="slogan">Nós melhorando a nossa segurança</div>
 			</div>
-					
+			
+			{% block main_menu %}	
 			<div id="nav">
 			  	<ul>
 				<li id="current"><a href="/">Principal</a></li>
-     				<li><a href="/ajuda">Ajuda</a></li>
-     				<li><a href="/sobre">Sobre</a></li>
-      				<li><a href="#">Contato</a></li>
+     				<li><a href="/ajuda/">Ajuda</a></li>
+     				<li><a href="/sobre/">Sobre</a></li>
+      				<li><a href="/contato/">Contato</a></li>
       			</ul>
 			</div>
+			{% endblock main_menu %}
 		
 			<div class="main_content">
 				<div class="sd_right">

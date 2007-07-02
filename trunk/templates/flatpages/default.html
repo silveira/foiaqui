@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 
-{# We don't want scripts #}
+{# We don't want map scripts #}
 {% block scripts %}
 {% endblock %}
+
+{# Just an eye candy #}
+{% block main_menu %}
+<div id="nav">
+<ul>
+   <li ><a href="/">Principal</a></li>
+   <li{% ifequal flatpage.title "Ajuda" %} id="current"{%endifequal%}><a href="/ajuda/">Ajuda</a></li>
+   <li{% ifequal flatpage.title "Sobre" %} id="current"{%endifequal%} ><a href="/sobre/">Sobre</a></li>
+   <li{% ifequal flatpage.title "Contato" %} id="current"{%endifequal%}><a href="/contato/">Contato</a></li>
+</ul>
+</div>
+{% endblock main_menu %}
 
 
 {% block title %}
